@@ -18,5 +18,5 @@ This App is mainly specefic for the user who is willing to learn courses online.
 ## Technology Used
 - Khan-academy api
 - Alexa sdk
-- database(undecided)
+
 
