@@ -1,5 +1,8 @@
 import numpy as np
 from TexttoWord import text2int
+import json
+import random
+
 def get_number(word):   #Get numbers from the sentence
     word = text2int(word)
     temp_num = 0
@@ -58,7 +61,51 @@ def quotient_func(num_list:list):   #Simple division
         i += 1
     return(quotient_num)
 
-if __name__ == "__main__":
-    word = 'add two to ten and multiply by ten'
+def get_knowledge(cat):            #Return math knowledge
+    f = open('MathKnowledge.json')
+    data = json.load(f)
+    return data[cat]
+
+def random_test(cat):              #Test users math skills
+    if cat == 'addition':
+        paras = random.randrange(2,4,1)
+        nums = []
+        i = 0
+        test = 'what is the sum of '
+        while i < paras:
+            nums.append(random.randrange(0,100,1))
+            i += 1
+        ii = 0
+        while ii < paras - 1:
+            test = test + str(nums[ii]) + ' '
+            ii += 1
+        test = test + 'and ' + str(nums[paras - 1])
+        return test
+    else:
+        if cat == 'subtraction':
+            paras = 2
+            nums = []
+            nums.append(random.randrange(50,100,1))
+            nums.append(random.randrange(1,49,1))
+            test = 'what is the differen between ' + str(nums[0]) + ' and ' + str(nums[1])
+            return test
+        elif cat == 'multiplication':
+            paras = 2
+            nums = []
+            nums.append(random.randrange(1,10,1))
+            nums.append(random.randrange(2,10,1))
+            test = 'what is the product of ' + str(nums[0]) + ' and ' + str(nums[1])
+            return test
+        else:
+            paras = 2
+            nums = []
+            nums.append(random.randrange(2,20,2))
+            nums.append(random.randrange(2,10,2))
+            test = 'what is the quotient of ' + str(nums[0]) + ' and ' + str(nums[1])
+            return test
+if __name__ == "__main__":          #Testing functionalities
+    word = "the product of one hundred and nineteen"
     print(get_number(word))
+    print(get_knowledge('addition'))
+    print(random_test('addition'))
 
