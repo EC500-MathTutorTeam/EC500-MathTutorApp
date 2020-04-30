@@ -5,13 +5,13 @@ import time
 def app_logic():
     print('Welcome to Math Tutor!')
     exit_signal = 0
-    learn_signal = 0
-    help_signal = 0
-    add_signal = 0
-    sub_signal = 0
-    mul_signal = 0
-    div_signal = 0
     while exit_signal == 0:
+        learn_signal = 0
+        help_signal = 0
+        add_signal = 0
+        sub_signal = 0
+        mul_signal = 0
+        div_signal = 0
         print('What would you like to do ?')
         voice_input_0 = get_voice()
         if voice_input_0 == 'exit':
@@ -31,7 +31,7 @@ def app_logic():
                             print(test)
                             res_add = sum_func(nums)
                             voice_input_add_res = get_number(get_voice())
-                            if voice_input_add_res[0] == res_add:
+                            if voice_input_add_res == res_add:
                                 print('Correct! You are great at addition. Do you want to do more test?')
                                 voice_input_add_test = get_voice()
                                 if voice_input_add_test == 'no':
@@ -64,7 +64,7 @@ def app_logic():
                                     sub_signal = 1
                 elif voice_input_1 == 'multiplication':
                     print(get_knowledge('multiplication'))
-                    time.sleep(5) #copy
+                    time.sleep(5)
                     print('Do you want to test your multiplication skill')
                     voice_input_mul = get_voice()
                     if voice_input_mul == 'yes':
@@ -85,7 +85,7 @@ def app_logic():
                                     mul_signal = 1
                 elif voice_input_1 == 'division':
                     print(get_knowledge('division'))
-                    time.sleep(5) #copy
+                    time.sleep(5)
                     print('Do you want to test your division skill')
                     voice_input_div = get_voice()
                     if voice_input_div == 'yes':
@@ -111,6 +111,41 @@ def app_logic():
                     exit_signal = 1
                 else:
                     print('Could not recognize your command, please try again')
+        elif voice_input_0 == 'help me with math problems':
+            while help_signal == 0:
+                print('What kind of math problems?')
+                voice_input_help = get_voice()
+                if voice_input_help == 'addition':
+                    print('Please provide the numbers')
+                    voice_input_add_numbers = get_voice()
+                    add_numbers = get_number(voice_input_add_numbers)
+                    res_help_add = sum_func(add_numbers)
+                    print('The anwser is '+ str(res_help_add))
+                elif voice_input_help == 'multiplication':
+                    print('Please provide the numbers')
+                    voice_input_mul_numbers = get_voice()
+                    mul_numbers = get_number(voice_input_mul_numbers)
+                    res_help_mul = product_func(mul_numbers)
+                    print('The anwser is '+ str(res_help_mul))
+                elif voice_input_help == 'subtraction':
+                    print('Please provide the numbers')
+                    voice_input_sub_numbers = get_voice()
+                    sub_numbers = get_number(voice_input_sub_numbers)
+                    res_help_sub = diff_func(sub_numbers)
+                    print('The anwser is '+ str(res_help_sub))
+                elif voice_input_help == 'division':
+                    print('Please provide the numbers')
+                    voice_input_div_numbers = get_voice()
+                    div_numbers = get_number(voice_input_div_numbers)
+                    res_help_div = quotient_func(div_numbers)
+                    print('The anwser is '+ str(res_help_div))
+                elif voice_input_help == 'exit':
+                    help_signal = 1
+                print('Still need help with math problems?')
+                voice_input_math_help = get_voice()
+                if voice_input_math_help == 'no':
+                    help_signal = 1
+            
     print('Thanks for using Math Tutor, see you next time')
 
 if __name__ == "__main__":
