@@ -16,7 +16,7 @@ def app_logic():
         voice_input_0 = get_voice()
         if voice_input_0 == 'exit':
             exit_signal = 1
-        elif voice_input_0 == 'I want to learn about math':
+        elif voice_input_0 == 'I want to learn about math' or voice_input_0 == 'I want to learn about Mass' or voice_input_0 == 'I want to learn about the math' or voice_input_0 == 'I want to learn about the mass':
             while learn_signal == 0:
                 print('What would you like to learn')
                 voice_input_1 = get_voice()
@@ -31,12 +31,17 @@ def app_logic():
                             print(test)
                             res_add = sum_func(nums)
                             voice_input_add_res = get_number(get_voice())
-                            if voice_input_add_res == res_add:
+                            if not voice_input_add_res:
+                                print('No input detected, the anwser should be:' + str(res_add) + ' Would you like to do more test?')
+                                voice_input_add_test = get_voice()
+                                if voice_input_add_test == 'no':
+                                    add_signal = 1
+                            elif voice_input_add_res[0] == res_add:
                                 print('Correct! You are great at addition. Do you want to do more test?')
                                 voice_input_add_test = get_voice()
                                 if voice_input_add_test == 'no':
                                     add_signal = 1
-                            elif voice_input_add_res != res_add:
+                            elif voice_input_add_res[0] != res_add:
                                 print('The anwser is not correct, the anwser should be:' + str(res_add) + ' Would you like to do more test?')
                                 voice_input_add_test = get_voice()
                                 if voice_input_add_test == 'no':
@@ -52,13 +57,18 @@ def app_logic():
                             print(test)
                             res_sub = diff_func(nums)
                             voice_input_sub_res = get_number(get_voice())
-                            if voice_input_sub_res[0] == res_sub:
-                                print('Correct! You are great at subtraction. Do you want to do more test?')
+                            if not voice_input_sub_res:
+                                print('No input detected, the anwser should be:' + str(res_sub) + ' Would you like to do more test?')
                                 voice_input_sub_test = get_voice()
                                 if voice_input_sub_test == 'no':
                                     sub_signal = 1
-                            elif voice_input_sub_res != res_sub:
-                                print('The anwser is not correct, the anwser should be:' + str(res_sub) + 'Would you like to do more test?')
+                            elif voice_input_sub_res[0] == res_sub:
+                                print('Correct! You are great at subition. Do you want to do more test?')
+                                voice_input_sub_test = get_voice()
+                                if voice_input_sub_test == 'no':
+                                    sub_signal = 1
+                            elif voice_input_sub_res[0] != res_sub:
+                                print('The anwser is not correct, the anwser should be:' + str(res_sub) + ' Would you like to do more test?')
                                 voice_input_sub_test = get_voice()
                                 if voice_input_sub_test == 'no':
                                     sub_signal = 1
@@ -73,13 +83,18 @@ def app_logic():
                             print(test)
                             res_mul = product_func(nums)
                             voice_input_mul_res = get_number(get_voice())
-                            if voice_input_mul_res[0] == res_mul:
-                                print('Correct! You are great at multiplication. Do you want to do more test?')
+                            if not voice_input_mul_res:
+                                print('No input detected, the anwser should be:' + str(res_mul) + ' Would you like to do more test?')
                                 voice_input_mul_test = get_voice()
                                 if voice_input_mul_test == 'no':
                                     mul_signal = 1
-                            elif voice_input_mul_res != res_mul:
-                                print('The anwser is not correct, the anwser should be:' + str(res_mul) + 'Would you like to do more test?')
+                            elif voice_input_mul_res[0] == res_mul:
+                                print('Correct! You are great at mulition. Do you want to do more test?')
+                                voice_input_mul_test = get_voice()
+                                if voice_input_mul_test == 'no':
+                                    mul_signal = 1
+                            elif voice_input_mul_res[0] != res_mul:
+                                print('The anwser is not correct, the anwser should be:' + str(res_mul) + ' Would you like to do more test?')
                                 voice_input_mul_test = get_voice()
                                 if voice_input_mul_test == 'no':
                                     mul_signal = 1
@@ -92,15 +107,20 @@ def app_logic():
                         while div_signal == 0:
                             test, nums = random_test('division')
                             print(test)
-                            res_div = sum_func(nums)
+                            res_div = quotient_func(nums)
                             voice_input_div_res = get_number(get_voice())
-                            if voice_input_div_res[0] == res_div:
-                                print('Correct! You are great at division. Do you want to do more test?')
+                            if not voice_input_div_res:
+                                print('No input detected, the anwser should be:' + str(res_div) + ' Would you like to do more test?')
                                 voice_input_div_test = get_voice()
                                 if voice_input_div_test == 'no':
                                     div_signal = 1
-                            elif voice_input_div_res != res_div:
-                                print('The anwser is not correct, the anwser should be:' + str(res_div) + 'Would you like to do more test?')
+                            elif voice_input_div_res[0] == res_div:
+                                print('Correct! You are great at divition. Do you want to do more test?')
+                                voice_input_div_test = get_voice()
+                                if voice_input_div_test == 'no':
+                                    div_signal = 1
+                            elif voice_input_div_res[0] != res_div:
+                                print('The anwser is not correct, the anwser should be:' + str(res_div) + ' Would you like to do more test?')
                                 voice_input_div_test = get_voice()
                                 if voice_input_div_test == 'no':
                                     div_signal = 1
