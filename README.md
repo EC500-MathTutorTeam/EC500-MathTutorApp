@@ -23,5 +23,5 @@ JSON
 Speech_recognition api (google voice recognition)
 
 ## Structure
-
+<img src = "math/structure.png"></br>
 
