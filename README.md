@@ -4,19 +4,24 @@
 - Shengyueshao (shengys@bu.edu)
 
 ## User Story
-I, as a student, can learn courses from this appliaction.
-I, as a coach/teacher, can give a quiz to my students.
+I, as a student, want to learn math knowledges.
+I, as a student, want to practice math problems after I learned the knowledge
+I, as a student, want to use the application to help me with math problems
 
 ## Product Mission
-This App is mainly specefic for the user who is willing to learn courses online. It helps users(students) to learn the courses they want from the app and also through voice chat to add courses. It also provides users(teachers) to interact with students via posting questions or quizs.
+This App is mainly specefic for the user who is willing to learn math knowledge. It helps users(students) to learn and practice math problems. User can also use this app to solve math problems.
 
 ## MVP
-- The app can read voice text from students.
-- The app can provide course-videos via khan-academy api.
-- The app can test students from teachers.
+Recognize user’s voice input and convert it to text input
+Provide course via Khan api(Couldn’t get Khan api to work)
+Test user with math problems
+
 
 ## Technology Used
-- Khan-academy api
-- Alexa sdk
+Python
+JSON
+Speech_recognition api (google voice recognition)
+
+## Structure
 
 
