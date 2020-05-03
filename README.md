@@ -31,7 +31,7 @@ This App is mainly specefic for the user who is willing to learn math knowledge.
 
 2. Trying to use Alexa Skill api. The Alexa Develop console have their built-in simulator. Users can design their innovation, design intents and the simulator can display the example.(Abandon this since we found opearations can only deploy on the alexa console. We try to integrate it).
 
-3. Decide to use the google speech recognition api on our project.
+3. Decide to use the google speech recognition api on our project(Already Demo on 5/1)
 
 
 
